@@ -1,12 +1,13 @@
 package com.rentus.services;
 
-import com.rentus.models.Tool;
-import org.springframework.stereotype.Service;
+import com.rentus.models.Tools;
 
 import java.util.List;
 
-@Service
+
 public interface ToolsService {
-    List<Tool> getTools();
-    void orderTool(Tool tool);
+    List<Tools> getTools();
+    void orderTool(Tools tool);
+    void addtool( Tools tool);
+
 }

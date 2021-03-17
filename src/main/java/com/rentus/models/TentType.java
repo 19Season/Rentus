@@ -1,6 +1,8 @@
+/*
 package com.rentus.models;
 
-public enum TentType {
+public enum entType {
     FLAT,
     CURVED
 }
+*/

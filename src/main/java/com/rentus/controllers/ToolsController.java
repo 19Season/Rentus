@@ -1,36 +1,46 @@
 package com.rentus.controllers;
 
-import com.rentus.models.Tool;
-import com.rentus.services.ToolsManagementService;
-import com.rentus.services.ToolsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.google.gson.Gson;
+import com.rentus.models.Tools;
+import com.rentus.utility.ServiceFactory;
 
-import java.util.List;
+import static spark.Spark.post;
 
-@RestController
-@RequestMapping("/")
 public class ToolsController {
+   public static void addtool(){
+       post("/api/addtool",(req, res)-> {
+           Tools tool = new Gson().fromJson(req.body(), Tools.class);
+           System.out.println(tool);
+           ServiceFactory.gettoolService().addtool(tool);
+           return true;
+       });
+    }
 
-    private ToolsService toolsService;
+}
+   /* private ToolsService toolsService;
 
     public ToolsController() {
         toolsService = new ToolsManagementService();
     }
 
     @GetMapping("tools")
-    public List<Tool> getAllTools() {
+    public List<Tools> getAllTools() {
         var tools = toolsService.getTools();
         return tools;
     }
 
     @PostMapping("tools")
-    public void addTool(Tool tool) {
-        toolsService.orderTool(tool);
+    public void addTool(Tools tools) {
+        toolsService.orderTool(tools);
     }
 
-}
+    @GetMapping("search")
+    public void search(HttpRequest req){
+        //req.get.parameter
+    }*/
+
+
+
+
 
 

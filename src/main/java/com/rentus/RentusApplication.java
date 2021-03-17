@@ -1,13 +1,13 @@
 package com.rentus;
 
+import com.rentus.controllers.ToolsController;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import static spark.Spark.port;
 
-@SpringBootApplication
 public class RentusApplication {
-
-	public static void main(String[] args) { SpringApplication.run(RentusApplication.class, args);
+	public static void main(String[] args) {
+		port(8082);
+		ToolsController.addtool();
 	}
-
 }
+

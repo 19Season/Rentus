@@ -1,6 +1,7 @@
+/*
 package com.rentus.models;
 
-public class Jacket extends Tool {
+public class Jacket extends Tools {
 
     private JacketType type;
 
@@ -12,3 +13,4 @@ public class Jacket extends Tool {
         this.type = type;
     }
 }
+*/
