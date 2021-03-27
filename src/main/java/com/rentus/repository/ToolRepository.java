@@ -1,17 +1,19 @@
 package com.rentus.repository;
 
-import com.rentus.models.Tools;
+import com.rentus.models.Tool;
 
 import java.util.List;
 
 public interface ToolRepository {
 
-    void addTool(Tools tool);
-      List<Tools> allTools();
-      void delete(int id);
-      void update(int id);
-      void getById();
-      void getByType();
+      void addTool(Tool tool);
+      List<Tool> allTools();
+      List<Tool> getAllBookedTool();
+      void delete(Tool tool);
+      boolean update(int id, Tool tools);
+      Tool getById(int id);
+      List<Tool> getByCategories(String type);
       void Available();
+      //boolean cancelBook(int id);
 
   }

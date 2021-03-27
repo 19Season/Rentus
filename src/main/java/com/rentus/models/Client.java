@@ -1,9 +1,16 @@
 package com.rentus.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Login", query = "FROM CLient t where t.Username = :Username")
+})
+
 public class Client {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String address;
@@ -11,7 +18,8 @@ public class Client {
     private String Email;
     private String password;
     private String Username;
-
+    @OneToMany
+    private Tool tool;
 
     public int getId() {
         return id;

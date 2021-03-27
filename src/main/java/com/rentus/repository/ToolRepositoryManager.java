@@ -1,6 +1,6 @@
 package com.rentus.repository;
 
-import com.rentus.models.Tools;
+import com.rentus.models.Tool;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
@@ -16,7 +16,7 @@ public class ToolRepositoryManager implements ToolRepository {
     }
 
     @Override
-    public void addTool(Tools tool) {
+    public void addTool(Tool tool) {
             session = sessionFactory.createEntityManager();
             session.getTransaction().begin();
             session.persist(tool);
@@ -29,35 +29,111 @@ public class ToolRepositoryManager implements ToolRepository {
     }
 
     @Override
-    public List<Tools> allTools() {
-
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public void update(int id) {
-
+    public List<Tool> allTools() {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        List<Tool> result = session.createQuery("FROM Tool").getResultList();
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return result;
     }
 
 
+    @Override
+    public List<Tool> getAllBookedTool() {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        List<Tool> result = session.createNamedQuery("getBooked",Tool.class)
+                .setParameter("booked",true)
+                .getResultList();
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return result;
+    }
 
     @Override
-    public void getById() {
+        public void delete(Tool tool) {
+            session = sessionFactory.createEntityManager();
+            session.getTransaction().begin();
+            session.persist(tool);
+            session.getTransaction().commit();
+            if (session.isOpen()) {
+                session.close();
+            }
+
 
     }
 
     @Override
-    public void getByType() {
+    public boolean update(int id, Tool tools) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Tool tools1 = session.find(Tool.class,id);
+        tools1.setName(tools.getName());
+        tools1.setPrice(tools.getPrice());
+        tools1.setDescription(tools.getDescription());
+        tools1.setType(tools.getType());
+        tools1.setSize(tools.getSize());
+        tools1.setId(id);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return true;
+    }
+
+
+
+    @Override
+    public Tool getById(int id) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Tool tools1 = session.find(Tool.class,id);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return tools1;
+
+    }
+
+    @Override
+    public List<Tool> getByCategories(String type) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        List<Tool> tools1 = session.createNamedQuery("getCategory",Tool.class).
+                setParameter("type",type).getResultList();
+                session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return tools1;
 
     }
 
     @Override
     public void Available() {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
 
     }
-}
+
+
+    }
+
+   /* @Override
+    public boolean cancelBook(int id) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Tool tools1 = session.find(Tool.class,id);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return true;
+    }*/
+

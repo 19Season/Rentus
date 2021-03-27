@@ -13,5 +13,4 @@ public class SessionFactory {
             }
             return instance;
         }
-
     }

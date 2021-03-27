@@ -6,6 +6,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Shop {
+
+
     @Id
     @GeneratedValue
     private int id;
@@ -15,6 +17,9 @@ public class Shop {
     private String Email;
     private String password;
     private String Username;
+
+  /*  @OneToOne
+    private Tool tool;*/
 
     public int getId() {
         return id;
@@ -71,6 +76,14 @@ public class Shop {
     public void setUsername(String username) {
         Username = username;
     }
+
+  /*  public Tool getTool() {
+        return tool;
+    }
+
+    public void setTool(Tool tool) {
+        this.tool = tool;
+    }*/
 
     @Override
     public String toString() {

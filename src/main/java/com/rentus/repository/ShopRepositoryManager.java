@@ -6,6 +6,7 @@ public class ShopRepositoryManager implements ShopRepository{
     @Override
     public void login() {
 
+
     }
 
     @Override
