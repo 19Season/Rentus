@@ -2,7 +2,6 @@ package com.rentus.repository;
 
 import com.rentus.models.Client;
 import com.rentus.utility.SessionFactory;
-import org.dom4j.QName;
 
 import javax.persistence.EntityManager;
 
@@ -24,7 +23,7 @@ public class ClientRepositoryManager implements ClientRepository{
         if (session.isOpen()) {
             session.close();
         }
-        ;
+
 
     }
 
@@ -41,4 +40,4 @@ public class ClientRepositoryManager implements ClientRepository{
 
 
     }
-}
+

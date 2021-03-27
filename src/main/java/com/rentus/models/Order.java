@@ -3,7 +3,22 @@ package com.rentus.models;
 public class Order {
     private int id;
     private Client client;
+    private Shop shop;
     private Tool tool;
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+
+
+    public Order(Shop shop) {
+        this.shop = shop;
+    }
 
     public int getId() {
         return id;
@@ -29,6 +44,4 @@ public class Order {
         this.tool = tool;
     }
 
-    public void getShop_id() {
-    }
 }

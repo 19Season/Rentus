@@ -2,64 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="911277dd-44df-4009-b655-ac2f239218df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ClientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ClientRepositoryManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rentus/services/ClientManagementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8.2/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/RentusApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/RentusApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/controllers/ToolsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/controllers/ToolsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/controllers/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/controllers/ClientController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/Tools.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/models/order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/AdminRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/AdminRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/AdminRepositoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/AdminRepositoryManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ToolRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ToolRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ToolRepositoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ToolRepositoryManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ClientRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ClientRepositoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ClientRepositoryManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ShopRepositoryManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/repository/ShopRepositoryManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ClientManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ClientManagementService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ToolsManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ToolsManagementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ToolsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/services/ToolsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/RepoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/RepoFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/ServiceFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/rentus-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/rentus-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/SessionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/rentus/utility/SessionFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/RentusApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/RentusApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/ToolsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/ToolsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/models/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Jacket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/JacketType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Shoe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/models/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Tent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/TentType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/models/Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/AdminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/AdminRepositoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/AdminRepositoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ShopRepositoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ShopRepositoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ToolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ToolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ToolRepositoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ToolRepositoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ClientRepositoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/repository/ClientRepositoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/services/ClientManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/services/ClientManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/services/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/services/ToolsManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/services/ToolsManagementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/services/ToolsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/services/ToolsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/utility/RepoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/utility/RepoFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/utility/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/utility/ServiceFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rentus/utility/SessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rentus/utility/SessionFactory.java" afterDir="false" />
@@ -109,6 +82,9 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="rentus" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -137,7 +113,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -258,10 +234,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser" timestamp="1616825909100">
+    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser" timestamp="1616839378748">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1616825909100" />
+    <state x="446" y="43" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1616839378748" />
     <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1615166791685" />
     <state x="438" y="201" width="404" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1616825299906">
       <screen x="0" y="0" width="1280" height="680" />
@@ -275,50 +251,50 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="59" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616029709411" />
-    <state width="1237" height="129" key="GridCell.Tab.0.bottom" timestamp="1616826038419">
+    <state width="1237" height="129" key="GridCell.Tab.0.bottom" timestamp="1616848514537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="129" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616826038419" />
+    <state width="1237" height="129" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616848514537" />
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1615255106617" />
-    <state width="1237" height="129" key="GridCell.Tab.0.center" timestamp="1616826038419">
+    <state width="1237" height="129" key="GridCell.Tab.0.center" timestamp="1616848514537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="129" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616826038419" />
+    <state width="1237" height="129" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616848514537" />
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1615255106617" />
-    <state width="1237" height="129" key="GridCell.Tab.0.left" timestamp="1616826038419">
+    <state width="1237" height="129" key="GridCell.Tab.0.left" timestamp="1616848514536">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="129" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616826038419" />
+    <state width="1237" height="129" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616848514536" />
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1615255106617" />
-    <state width="1237" height="129" key="GridCell.Tab.0.right" timestamp="1616826038419">
+    <state width="1237" height="129" key="GridCell.Tab.0.right" timestamp="1616848514537">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="129" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616826038419" />
+    <state width="1237" height="129" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616848514537" />
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1615255106617" />
-    <state width="1237" height="243" key="GridCell.Tab.1.bottom" timestamp="1616639932194">
+    <state width="1237" height="243" key="GridCell.Tab.1.bottom" timestamp="1616847294830">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="243" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616639932194" />
-    <state width="1237" height="243" key="GridCell.Tab.1.center" timestamp="1616639932194">
+    <state width="1237" height="243" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616847294830" />
+    <state width="1237" height="243" key="GridCell.Tab.1.center" timestamp="1616847294830">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="243" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616639932194" />
-    <state width="1237" height="243" key="GridCell.Tab.1.left" timestamp="1616639932194">
+    <state width="1237" height="243" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616847294830" />
+    <state width="1237" height="243" key="GridCell.Tab.1.left" timestamp="1616847294829">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="243" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616639932194" />
-    <state width="1237" height="243" key="GridCell.Tab.1.right" timestamp="1616639932194">
+    <state width="1237" height="243" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616847294829" />
+    <state width="1237" height="243" key="GridCell.Tab.1.right" timestamp="1616847294830">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="243" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616639932194" />
+    <state width="1237" height="243" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616847294830" />
     <state x="316" y="40" key="NewModule_or_Project.wizard" timestamp="1616029530913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="316" y="40" key="NewModule_or_Project.wizard/0.0.1280.680@0.0.1280.680" timestamp="1616029530913" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1616634700040">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1616837119464">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616634700040" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616837119464" />
     <state x="93" y="93" width="1095" height="495" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616635402023">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -328,14 +304,18 @@
     </state>
     <state x="337" y="175" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1616379276774" />
     <state x="337" y="185" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1615251640427" />
-    <state x="218" y="77" width="844" height="602" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1616592177334">
+    <state x="218" y="77" width="844" height="602" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1616839051179">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="218" y="77" width="844" height="602" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680@0.0.1280.680" timestamp="1616592177334" />
+    <state x="218" y="77" width="844" height="602" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680@0.0.1280.680" timestamp="1616839051179" />
     <state x="0" y="0" key="new project wizard" timestamp="1616029473441">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1616029473441" />
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1616837264229">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1616837264229" />
     <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1616288829040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -346,6 +326,28 @@
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1616816303337" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java</url>
+          <line>10</line>
+          <properties class="com.rentus.controllers.ClientController" method="Register">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rentus/controllers/ClientController.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
         <watch expression="req.body()" language="JAVA" />
@@ -355,5 +357,10 @@
         <watch expression="session.persist(tool);" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rentus$RentusApplication.ic" NAME="RentusApplication Coverage Results" MODIFIED="1616847822038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.rentus.*</FILTER>
+    </SUITE>
   </component>
 </project>

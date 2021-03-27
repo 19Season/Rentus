@@ -1,6 +1,5 @@
 package com.rentus.utility;
 
-
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactory {

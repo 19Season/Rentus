@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Login", query = "FROM CLient t where t.Username = :Username")
+        @NamedQuery(name = "Login", query = "FROM Client t where t.Username = :Username"),
+        @NamedQuery(name = "Register", query = "FROM Client t where t.Username =:Username")
 })
 
 public class Client {

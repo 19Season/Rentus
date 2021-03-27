@@ -25,6 +25,7 @@
         <!-- List of XML mapping files -->
         <mapping  class="com.rentus.models.Tool"/>
         <mapping  class="com.rentus.models.Shop"/>
+        <mapping class="com.rentus.models.Client"/>
 
     </session-factory>
 </hibernate-configuration>

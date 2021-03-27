@@ -1,5 +1,6 @@
 package com.rentus;
 
+import com.rentus.controllers.ClientController;
 import com.rentus.controllers.ToolsController;
 import com.rentus.utility.SessionFactory;
 
@@ -15,6 +16,8 @@ public class RentusApplication {
 		ToolsController.alltools();
 		ToolsController.getById();
 		ToolsController.getAllBookedTools();
+		ClientController.Login();
+		ClientController.Register();
 	}
 }
 
