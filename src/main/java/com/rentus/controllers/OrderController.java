@@ -28,7 +28,7 @@ public class OrderController {
     }
 
     public static void cancelOrder() {
-        get("/api/cancelbyid/:id", (req, res) -> {
+        get("/api/cancelOrder/:id", (req, res) -> {
             try {
                 int id = Integer.parseInt(req.params("id"));
                 return GsonFactory.gson().toJson(ServiceFactory.getorderservice().cancelOrder(id));

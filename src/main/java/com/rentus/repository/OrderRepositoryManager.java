@@ -2,6 +2,7 @@
 package com.rentus.repository;
 
 import com.rentus.models.Order;
+import com.rentus.models.Tool;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
@@ -30,8 +31,11 @@ public class OrderRepositoryManager implements OrderRepository {
     public boolean cancelOrder(int id) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        com.rentus.models.Tool tools1 = session.find(com.rentus.models.Tool.class, id);
-        session.remove(tools1);
+        com.rentus.models.Order order = session.find(com.rentus.models.Order.class, id);
+        Tool tool = order.getTool();
+        tool.setBooked(false);
+        session.remove(order);
+        session.persist(tool);
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();

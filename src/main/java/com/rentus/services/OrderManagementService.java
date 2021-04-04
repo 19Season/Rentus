@@ -29,6 +29,7 @@ public class OrderManagementService implements OrderService {
         calendar.add(Calendar.MONTH, 1);
 
         order.setExpiryDate(calendar.getTimeInMillis());
+        order.getTool().setBooked(true);
         this.OrderRepo.makeOrder(order);
 
         return true;
