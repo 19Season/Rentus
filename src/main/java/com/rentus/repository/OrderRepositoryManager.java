@@ -16,10 +16,14 @@ public class OrderRepositoryManager implements OrderRepository {
         sessionFactory = SessionFactory.getInstance();
     }
 
-    public boolean makeOrder(Order tool) {
+    public boolean makeOrder(Order order) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
+        session.persist(order);
+        Tool tool = session.find(com.rentus.models.Tool.class, order.getTool().getId());
+        tool.setBooked(true);
         session.persist(tool);
+
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -47,7 +51,7 @@ public class OrderRepositoryManager implements OrderRepository {
     public List<Order> getallOrders() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Order> result = session.createQuery("FROM Tool").getResultList();
+        List<Order> result = session.createNamedQuery("allOrders").getResultList();
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();

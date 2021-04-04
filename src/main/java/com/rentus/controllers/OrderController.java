@@ -45,7 +45,7 @@ public class OrderController {
     public static void allOrder() {
         get("/api/order/allorders", (req, res) -> {
             try {
-                return GsonFactory.gson().toJson(ServiceFactory.getorderservice().allorder());
+                return GsonFactory. gson().toJson(ServiceFactory.getorderservice().allorder());
             }
             catch(Exception e) {
                 e.printStackTrace();

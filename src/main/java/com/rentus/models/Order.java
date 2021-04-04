@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @NamedQueries({
+        @NamedQuery(name = "allOrders", query = "FROM Order O INNER JOIN FETCH O.tool"),
         @NamedQuery(name = "getParticularOrder", query = "FROM Order O INNER JOIN FETCH O.tool  where O.client.id = :client")
 })
 
