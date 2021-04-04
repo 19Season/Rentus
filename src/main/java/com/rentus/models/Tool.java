@@ -1,28 +1,55 @@
 package com.rentus.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name = "getBooked", query = "FROM Tool t where t.isBooked = :booked"),
-        @NamedQuery(name = "getCategory", query = " FROM Tool t where t.type= :type")
+        @NamedQuery(name = "getBooked", query = "FROM Tool t where t.isBooked =:booked"),
+        @NamedQuery(name = "getCategory", query = "FROM Tool t where t.type=:type")
 })
 
 
 @Entity
-public class Tool {
+@Table(name="tools")
+public class Tool  {
+
     @Id
     @GeneratedValue
+    @Expose
     private int id;
+    @Expose
     private String name;
+    @Expose
     private int size;
+    @Expose
     private String description;
+    @Expose
     private  int price;
+    @Expose
     private String type;
+    @Expose
     private boolean isBooked;
-    @OneToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "shop_id")
+    @Expose
     private Shop shop;
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "tool")
+    private Order order;
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
     public boolean isBooked()
+
     {
         return isBooked;
     }
@@ -83,11 +110,11 @@ public class Tool {
         this.price = price;
     }
 
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
-    }
+//    public Order getOrder() {
+//        return order;
+//    }
+//
+//    public void setOrder(Order order) {
+//        this.order = order;
+//    }
 }

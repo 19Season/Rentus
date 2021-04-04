@@ -6,14 +6,18 @@ import com.rentus.utility.RepoFactory;
 
 public class ClientManagementService implements ClientService {
     private ClientRepository ClientRepo;
-    public ClientManagementService(){
-        this.ClientRepo= RepoFactory.getClientRepo();
+
+    public ClientManagementService() {
+        this.ClientRepo = RepoFactory.getClientRepo();
     }
 
     @Override
-    public void Login(Client client) {
+    public Boolean Login(Client client) {
         ClientRepo.Login(client);
+        return true;
     }
+
+
 
     @Override
     public void Register(Client client) {

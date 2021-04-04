@@ -18,12 +18,12 @@ public class ToolRepositoryManager implements ToolRepository {
     @Override
     public void addTool(Tool tool) {
             session = sessionFactory.createEntityManager();
-            session.getTransaction().begin();
-            session.persist(tool);
-            session.getTransaction().commit();
-            if (session.isOpen()) {
-                session.close();
-            }
+        session.getTransaction().begin();
+        session.persist(tool);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
 
 
     }
@@ -32,7 +32,9 @@ public class ToolRepositoryManager implements ToolRepository {
     public List<Tool> allTools() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Tool> result = session.createQuery("FROM Tool").getResultList();
+        List<Tool> result = session.createQuery("FROM Tool t INNER JOIN FETCH t.shop s").getResultList();
+//        List<Tool> result = session.createQuery("FROM Tool").getResultList();
+
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -59,7 +61,8 @@ public class ToolRepositoryManager implements ToolRepository {
         public void delete(Tool tool) {
             session = sessionFactory.createEntityManager();
             session.getTransaction().begin();
-            session.persist(tool);
+            Tool tools1 = session.find(Tool.class,tool);
+            session.remove(tools1);
             session.getTransaction().commit();
             if (session.isOpen()) {
                 session.close();

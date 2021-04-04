@@ -1,26 +1,40 @@
 package com.rentus.models;
 
+import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name= "clients")
 @NamedQueries({
-        @NamedQuery(name = "Login", query = "FROM Client t where t.Username = :Username"),
-        @NamedQuery(name = "Register", query = "FROM Client t where t.Username =:Username")
+        @NamedQuery(name = "login", query = "FROM Client t where t.username = :username"),
 })
+
 
 public class Client {
 
     @Id
     @GeneratedValue
+    @Expose
     private int id;
+    @Expose
     private String name;
+    @Expose
     private String address;
+    @Expose
     private String phone;
-    private String Email;
+    @Expose
+    private String email;
+    @Expose
     private String password;
-    private String Username;
-    @OneToMany
-    private Tool tool;
+    @Expose
+    private String username;
+
+    @Expose
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
+    private List<Order> orders;
 
     public int getId() {
         return id;
@@ -55,11 +69,11 @@ public class Client {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
@@ -71,23 +85,18 @@ public class Client {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", Email='" + Email + '\'' +
-                ", password='" + password + '\'' +
-                ", Username='" + Username + '\'' +
-                '}';
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

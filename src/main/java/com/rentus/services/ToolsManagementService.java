@@ -10,6 +10,7 @@ import com.rentus.models.Tool;
 import com.rentus.repository.ToolRepository;
 import com.rentus.utility.RepoFactory;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -19,7 +20,7 @@ public ToolsManagementService(){
     this.toolRepo = RepoFactory.getToolRepo();
 
 }
-
+    @Transactional
     @Override
     public List<Tool> getTools() {
         return toolRepo.allTools();
@@ -56,7 +57,12 @@ public ToolsManagementService(){
         return toolRepo.getByCategories(type);
     }
 
+    @Override
+    public void delete(Tool tool) {
+        toolRepo.delete(tool);
     }
+
+}
 
 
 

@@ -29,15 +29,20 @@ public class ClientRepositoryManager implements ClientRepository{
 
 
     @Override
-    public void Login(Client client) {
+    public boolean Login(Client client) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        Client Clients1 = session.createQuery("Login", Client.class)
-                .setParameter("Username", client.getUsername())
+        Client client1 = session.createNamedQuery("login", Client.class)
+                .setParameter("username", client.getUsername())
                 .getSingleResult();
         session.getTransaction().commit();
-    }
+        if(client1.getPassword().equals(client.getPassword()))
+        {return true;
+        }
+        else{
+            return false;
+        }
 
 
     }
-
+}

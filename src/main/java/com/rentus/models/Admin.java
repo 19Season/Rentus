@@ -1,10 +1,20 @@
 package com.rentus.models;
 
+import javax.persistence.*;
+
+@NamedQueries({
+        @NamedQuery(name = "adminLogin", query = "FROM Admin a where a.username = :username"),
+})
+@Entity
+@Table( name = "admins")
 public class Admin {
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Column(unique = true)
     private String username;
     private String password;
-    private String Email;
-
 
     public String getUsername() {
         return username;
@@ -22,20 +32,11 @@ public class Admin {
         this.password = password;
     }
 
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
     @Override
     public String toString() {
         return "Admin{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", Email='" + Email + '\'' +
                 '}';
     }
 }

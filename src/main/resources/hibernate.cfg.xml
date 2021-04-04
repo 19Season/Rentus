@@ -11,20 +11,21 @@
         <!-- Assume test is the database name -->
 
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/rentus
+            jdbc:mysql://localhost:3306/rentus?serverTimezone=UTC
         </property>
 
         <property name="hibernate.connection.username">
             root
         </property>
 
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.password">rootroot</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
 
         <!-- List of XML mapping files -->
         <mapping  class="com.rentus.models.Tool"/>
         <mapping  class="com.rentus.models.Shop"/>
+        <mapping  class="com.rentus.models.Order"/>
         <mapping class="com.rentus.models.Client"/>
 
     </session-factory>

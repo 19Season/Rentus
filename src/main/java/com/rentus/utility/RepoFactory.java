@@ -1,12 +1,13 @@
 package com.rentus.utility;
 
-import com.rentus.repository.ClientRepository;
-import com.rentus.repository.ClientRepositoryManager;
-import com.rentus.repository.ToolRepository;
-import com.rentus.repository.ToolRepositoryManager;
+import com.rentus.repository.*;
 
 public class RepoFactory {
 
+
+    public static ShopRepository getShopRepo(){
+        return new ShopRepositoryManager();
+    }
 
     public static ToolRepository getToolRepo() {
         return new ToolRepositoryManager();
@@ -16,5 +17,11 @@ public class RepoFactory {
         return new ClientRepositoryManager();
 
     }
+public static AdminRepository getAdminRepo(){
+        return new AdminRepositoryManager();
 }
+public static OrderRepository getOrderRepo(){
+        return new OrderRepositoryManager();
+}
+    }
 

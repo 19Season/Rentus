@@ -6,6 +6,6 @@ public interface ClientRepository {
     void Register(Client client);
 
 
-    void Login(Client client);
+    boolean Login(Client client);
 }
 

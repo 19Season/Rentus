@@ -1,6 +1,9 @@
 package com.rentus.repository;
 
+import com.rentus.models.Shop;
+
 public interface ShopRepository {
-    void login();
-    void delivery();
+    void register(Shop shop);
+    Boolean login(Shop shop);
+
 }

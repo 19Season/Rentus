@@ -1,25 +1,37 @@
 package com.rentus.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
+import javax.persistence.*;
+import java.util.List;
+
+@NamedQuery(name = "findShopUsername", query = "FROM Shop s where s.username = :username")
 @Entity
+@Table(name = "shops")
 public class Shop {
-
-
     @Id
     @GeneratedValue
+    @Expose
     private int id;
+    @Expose
     private String name;
+    @Expose
     private String address;
+    @Expose
     private String phone;
-    private String Email;
+    @Expose
+    private String email;
+    @Expose
     private String password;
-    private String Username;
+    @Expose
+    private String username;
 
-  /*  @OneToOne
-    private Tool tool;*/
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shop")
+    private List<Tool> tools;
 
     public int getId() {
         return id;
@@ -54,11 +66,11 @@ public class Shop {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
@@ -70,22 +82,26 @@ public class Shop {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
-  /*  public Tool getTool() {
-        return tool;
+    public List<Tool> getTools() {
+        return tools;
     }
 
-    public void setTool(Tool tool) {
-        this.tool = tool;
-    }*/
+    public void setTools(List<Tool> tools) {
+        this.tools = tools;
+    }
 
-    @Override
+
+
+
+
+ /* @Override
     public String toString() {
         return "Shop{" +
                 "id=" + id +
@@ -96,6 +112,5 @@ public class Shop {
                 ", password='" + password + '\'' +
                 ", Username='" + Username + '\'' +
                 '}';
-    }
+    }*/
 }
-

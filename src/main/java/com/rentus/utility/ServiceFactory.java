@@ -1,9 +1,6 @@
 package com.rentus.utility;
 
-import com.rentus.services.ClientManagementService;
-import com.rentus.services.ClientService;
-import com.rentus.services.ToolsManagementService;
-import com.rentus.services.ToolsService;
+import com.rentus.services.*;
 
 public class ServiceFactory {
             public static ToolsService gettoolService()
@@ -15,6 +12,17 @@ public class ServiceFactory {
             {
                 return new ClientManagementService();
             }
-            }
+
+    public static ShopManagementService getshopService()
+    { return new ShopManagementService();}
+
+    public static AdminManagementService getadminService() {
+        return new AdminManagementService();
+    }
+
+    public static OrderManagementService getorderservice() {
+                return new OrderManagementService();
+    }
+}
 
 
