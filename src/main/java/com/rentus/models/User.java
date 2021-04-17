@@ -2,13 +2,25 @@ package com.rentus.models;
 
 import com.google.gson.annotations.Expose;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
-@NamedQuery(name = "findShopUsername", query = "FROM Shop s where s.username = :username")
 @Entity
-@Table(name = "shops")
-public class Shop {
+@Table(name= "users")
+@NamedQueries({
+        @NamedQuery(name = "getByUserName", query = "FROM User u where t.username = :username"),
+})
+
+
+public class User {
+
     @Id
     @GeneratedValue
     @Expose
@@ -26,8 +38,16 @@ public class Shop {
     @Expose
     private String username;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shop")
-    private List<Product> products;
+    @Expose
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Order> orders;
+
+    @Expose
+    private boolean authenticated;
+
+    @Expose
+    private String role;
+
 
     public int getId() {
         return id;
@@ -85,28 +105,28 @@ public class Shop {
         this.username = username;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
 
+    public boolean isAuthenticated() {
+        return authenticated;
+    }
 
+    public void setAuthenticated(boolean authenticated) {
+        this.authenticated = authenticated;
+    }
 
+    public String getRole() {
+        return role;
+    }
 
- /* @Override
-    public String toString() {
-        return "Shop{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", Email='" + Email + '\'' +
-                ", password='" + password + '\'' +
-                ", Username='" + Username + '\'' +
-                '}';
-    }*/
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

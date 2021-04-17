@@ -43,7 +43,7 @@ public class OrderManagementService implements OrderService {
 
     @Override
     public List<Order> allorder() {
-        return this.OrderRepo.getallOrders();
+        return this.OrderRepo.getAllOrders();
     }
 
     @Override

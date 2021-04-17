@@ -8,7 +8,7 @@ import java.util.List;
 public interface OrderRepository {
      boolean makeOrder(Order order);
      boolean cancelOrder(int id);
-     List<Order> getallOrders();
+     List<Order> getAllOrders();
      List<Order> getParticularOrder(int id);
     }
 

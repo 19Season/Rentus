@@ -3,11 +3,10 @@ package com.rentus.models;
 import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
-import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = "allOrders", query = "FROM Order O INNER JOIN FETCH O.tool"),
-        @NamedQuery(name = "getParticularOrder", query = "FROM Order O INNER JOIN FETCH O.tool  where O.client.id = :client")
+        @NamedQuery(name = "getParticularOrder", query = "FROM Order O INNER JOIN FETCH O.tool  where O.userId= :userId")
 })
 
 @Entity
@@ -21,11 +20,14 @@ public class Order {
     @Expose
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tool_id")
-    private Tool tool;
+    private Product product;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
-    private Client client;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "client_id")
+//    private Client client;
+
+    @Expose
+    private int userId;
 
     @Expose
     private Long bookedDate;
@@ -56,20 +58,27 @@ public class Order {
         this.id = id;
     }
 
-    public Tool getTool() {
-        return tool;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setTool(Tool tool) {
-        this.tool = tool;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-
-    public Client getClient() {
-        return client;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
+    //
+//    public Client getClient() {
+//        return client;
+//    }
+//
+//    public void setClient(Client client) {
+//        this.client = client;
+//    }
 }
