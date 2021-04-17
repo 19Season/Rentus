@@ -1,7 +1,6 @@
-package com.rentus.models;
+package main.java.com.rentus.models;
 
 import com.google.gson.annotations.Expose;
-import org.hibernate.annotations.JoinColumnOrFormula;
 
 import javax.persistence.*;
 import java.util.List;
@@ -92,7 +91,7 @@ public class Client {
         this.username = username;
     }
 
-    public List<Order> getOrders() {
+    public List<com.rentus.models.Order> getOrders() {
         return orders;
     }
 

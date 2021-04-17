@@ -1,12 +1,19 @@
-package com.rentus.models;
+package main.java.com.rentus.models;
 
-import javax.persistence.*;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+import org.hibernate.annotations.Table;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @NamedQueries({
         @NamedQuery(name = "adminLogin", query = "FROM Admin a where a.username = :username"),
 })
 @Entity
-@Table( name = "admins")
+@Table(name = "admins")
 public class Admin {
     @Id
     @GeneratedValue

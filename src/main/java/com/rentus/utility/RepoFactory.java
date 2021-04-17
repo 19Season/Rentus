@@ -1,6 +1,6 @@
 package com.rentus.utility;
 
-import com.rentus.repository.*;
+import com.rentus.services.*;
 
 public class RepoFactory {
 

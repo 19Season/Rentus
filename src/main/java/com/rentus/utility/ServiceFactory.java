@@ -1,6 +1,5 @@
 package com.rentus.utility;
 
-import com.rentus.services.*;
 
 public class ServiceFactory {
             public static ToolsService gettoolService()
