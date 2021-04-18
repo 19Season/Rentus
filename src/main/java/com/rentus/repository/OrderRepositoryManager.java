@@ -2,7 +2,7 @@
 package com.rentus.repository;
 
 import com.rentus.models.Order;
-import com.rentus.models.Tool;
+import com.rentus.models.Product;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
@@ -20,9 +20,9 @@ public class OrderRepositoryManager implements OrderRepository {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
         session.persist(order);
-        Tool tool = session.find(com.rentus.models.Tool.class, order.getTool().getId());
-        tool.setBooked(true);
-        session.persist(tool);
+        Product product = session.find(Product.class, order.getProduct().getId());
+        product.setBooked(true);
+        session.persist(product);
 
         session.getTransaction().commit();
         if (session.isOpen()) {
@@ -36,10 +36,10 @@ public class OrderRepositoryManager implements OrderRepository {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
         com.rentus.models.Order order = session.find(com.rentus.models.Order.class, id);
-        Tool tool = order.getTool();
-        tool.setBooked(false);
+        Product product = order.getProduct();
+        product.setBooked(false);
         session.remove(order);
-        session.persist(tool);
+        session.persist(product);
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -48,7 +48,7 @@ public class OrderRepositoryManager implements OrderRepository {
     }
 
     @Override
-    public List<Order> getallOrders() {
+    public List<Order> getAllOrders() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
         List<Order> result = session.createNamedQuery("allOrders").getResultList();

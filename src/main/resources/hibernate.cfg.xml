@@ -23,7 +23,7 @@
 
 
         <!-- List of XML mapping files -->
-        <mapping  class="com.rentus.models.Tool"/>
+        <mapping  class="com.rentus.models.Product"/>
         <mapping  class="com.rentus.models.Shop"/>
         <mapping  class="com.rentus.models.Order"/>
         <mapping class="com.rentus.models.Client"/>

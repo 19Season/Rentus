@@ -1,23 +1,25 @@
 package com.rentus.controllers;
 
 import com.google.gson.Gson;
-import com.rentus.models.Tool;
+import com.rentus.models.Product;
 import com.rentus.utility.GsonFactory;
 import com.rentus.utility.ServiceFactory;
 
-import javax.transaction.Transactional;
-
 import static spark.Spark.*;
 
-public class ToolsController {
+public class ProductsController {
 
-    public static void addtool() {
+    public static void createOrUpdate() {
 
-        post("/api/addtool", (req, res) -> {
+        post("/api/products/product", (req, res) -> {
             try {
-                Tool tool = new Gson().fromJson(req.body(), Tool.class);
-                System.out.println(tool);
-                ServiceFactory.gettoolService().addtool(tool);
+                var productService = ServiceFactory.getProductService();
+                Product product = new Gson().fromJson(req.body(), Product.class);
+                if (product.getId() > 0) {
+                    productService.create(product);
+                } else {
+                    productService.update(product);
+                }
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -28,10 +30,10 @@ public class ToolsController {
     }
 
     public static void delete() {
-        post("/api/deleteTools", (req, res) -> {
+        post("/api/products/delete", (req, res) -> {
             try {
-                Tool tool = new Gson().fromJson(req.body(), Tool.class);
-                ServiceFactory.gettoolService().delete(tool);
+                Product product = new Gson().fromJson(req.body(), Product.class);
+                ServiceFactory.getProductService().delete(product);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -42,25 +44,10 @@ public class ToolsController {
     }
 
 
-    public static void updateTools() {
-        put("/api/tool/edit/:id", (req, res) -> {
+    public static void allProducts() {
+        get("/api/products", (req, res) -> {
             try {
-                Tool tool = new Gson().fromJson(req.body(), Tool.class);
-                int id = Integer.parseInt(req.params("id"));
-                return ServiceFactory.gettoolService().update(id, tool);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "failed to update tools";
-            }
-
-        });
-
-    }
-
-    public static void alltools() {
-        get("/api/tool/alltools", (req, res) -> {
-            try {
-                return GsonFactory.gson().toJson(ServiceFactory.gettoolService().getTools());
+                return GsonFactory.gson().toJson(ServiceFactory.getProductService().getProducts());
             } catch (Exception e) {
                 e.printStackTrace();
                 return "failed to fetch tools";
@@ -69,9 +56,9 @@ public class ToolsController {
     }
 
     public static void getAllBookedTools() {
-        get("/api/tool/bookedtool", (req, res) -> {
+        get("/api/products/booked", (req, res) -> {
             try {
-                return GsonFactory.gson().toJson(ServiceFactory.gettoolService().getBookedTools());
+                return GsonFactory.gson().toJson(ServiceFactory.getProductService().getBookedProducts());
             } catch (Exception e) {
                 e.printStackTrace();
                 return "failed to fetch booked tools";
@@ -84,7 +71,7 @@ public class ToolsController {
         get("/api/getbyid/:id", (req, res) -> {
             try {
                 int id = Integer.parseInt(req.params("id"));
-                return GsonFactory.gson().toJson(ServiceFactory.gettoolService().findById(id));
+                return GsonFactory.gson().toJson(ServiceFactory.getProductService().findById(id));
             } catch (Exception e) {
                 e.printStackTrace();
                 return "failed to fetch tool by id";
@@ -97,7 +84,7 @@ public class ToolsController {
         get("/api/getByType/:type", (req, res) -> {
             try {
                 String type = req.params("type");
-                return GsonFactory.gson().toJson(ServiceFactory.gettoolService().findByCategories(type));
+                return GsonFactory.gson().toJson(ServiceFactory.getProductService().findByCategories(type));
             } catch (Exception e) {
                 e.printStackTrace();
                 return "failed to fetch tool by type";

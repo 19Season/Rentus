@@ -9,12 +9,17 @@ public class RepoFactory {
         return new ShopRepositoryManager();
     }
 
-    public static ToolRepository getToolRepo() {
-        return new ToolRepositoryManager();
+    public static ProductRepository getProductRepo() {
+        return new ProductRepositoryManager();
     }
 
     public static ClientRepository getClientRepo() {
         return new ClientRepositoryManager();
+
+    }
+
+    public static UserRepository getUserRepo() {
+        return new UserRepositoryManager();
 
     }
 public static AdminRepository getAdminRepo(){

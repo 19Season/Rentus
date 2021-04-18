@@ -12,8 +12,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="tools")
-public class Tool  {
+@Table(name="products")
+public class Product {
 
     @Id
     @GeneratedValue
@@ -32,21 +32,24 @@ public class Tool  {
     @Expose
     private boolean isBooked;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "shop_id")
     @Expose
-    private Shop shop;
+    private int userId;
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "tool")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "shop_id")
+//    @Expose
+//    private Shop shop;
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "product")
     private Order order;
 
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
-    }
+//    public Shop getShop() {
+//        return shop;
+//    }
+//
+//    public void setShop(Shop shop) {
+//        this.shop = shop;
+//    }
 
     public boolean isBooked()
 
@@ -110,11 +113,19 @@ public class Tool  {
         this.price = price;
     }
 
-//    public Order getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(Order order) {
-//        this.order = order;
-//    }
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 }

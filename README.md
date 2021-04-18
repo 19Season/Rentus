@@ -1,2 +1,2 @@
 # rentus
-Demo application for renting tools
+Demo application for renting products

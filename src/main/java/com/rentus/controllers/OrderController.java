@@ -13,7 +13,7 @@ import static spark.Spark.post;
 
 public class OrderController {
     public static void makeOrder() {
-        post("/api/makeOrder", (req, res) -> {
+        post("/api/orders/order", (req, res) -> {
             try {
                 Order order = new Gson().fromJson(req.body(), Order.class);
                 ServiceFactory.getorderservice().makeOrder(order);
@@ -28,7 +28,7 @@ public class OrderController {
     }
 
     public static void cancelOrder() {
-        get("/api/cancelOrder/:id", (req, res) -> {
+        get("/api/orders/order/:id/cancel", (req, res) -> {
             try {
                 int id = Integer.parseInt(req.params("id"));
                 return GsonFactory.gson().toJson(ServiceFactory.getorderservice().cancelOrder(id));
@@ -42,8 +42,8 @@ public class OrderController {
     }
 
 
-    public static void allOrder() {
-        get("/api/order/allorders", (req, res) -> {
+    public static void allOrders() {
+        get("/api/orders", (req, res) -> {
             try {
                 return GsonFactory. gson().toJson(ServiceFactory.getorderservice().allorder());
             }
@@ -55,7 +55,7 @@ public class OrderController {
     }
 
     public static void getParticularOrder() {
-        get("/api/getParticularOrder/:id", (req, res) -> {
+        get("/api/orders/order/:id", (req, res) -> {
             try {
                 int id = Integer.parseInt(req.params("id"));
                 return GsonFactory.gson().toJson(ServiceFactory.getorderservice().getParticularOrder(id));

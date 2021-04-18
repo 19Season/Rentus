@@ -1,38 +1,25 @@
 package com.rentus.repository;
 
-import com.rentus.models.Tool;
+import com.rentus.models.Product;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class ToolRepositoryManager implements ToolRepository {
+public class ProductRepositoryManager implements ProductRepository {
     
     private static org.hibernate.SessionFactory sessionFactory;
     private EntityManager session;
 
-    public ToolRepositoryManager() {
+    public ProductRepositoryManager() {
         sessionFactory = SessionFactory.getInstance();
     }
 
     @Override
-    public void addTool(Tool tool) {
-            session = sessionFactory.createEntityManager();
-        session.getTransaction().begin();
-        session.persist(tool);
-        session.getTransaction().commit();
-        if (session.isOpen()) {
-            session.close();
-        }
-
-
-    }
-
-    @Override
-    public List<Tool> allTools() {
+    public List<Product> allProducts() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Tool> result = session.createQuery("FROM Tool t INNER JOIN FETCH t.shop s").getResultList();
+        List<Product> result = session.createQuery("FROM Tool t INNER JOIN FETCH t.shop s").getResultList();
 //        List<Tool> result = session.createQuery("FROM Tool").getResultList();
 
         session.getTransaction().commit();
@@ -44,10 +31,10 @@ public class ToolRepositoryManager implements ToolRepository {
 
 
     @Override
-    public List<Tool> getAllBookedTool() {
+    public List<Product> getAllBookedProducts() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Tool> result = session.createNamedQuery("getBooked",Tool.class)
+        List<Product> result = session.createNamedQuery("getBooked", Product.class)
                 .setParameter("booked",true)
                 .getResultList();
         session.getTransaction().commit();
@@ -58,11 +45,11 @@ public class ToolRepositoryManager implements ToolRepository {
     }
 
     @Override
-        public void delete(Tool tool) {
+        public void delete(Product product) {
             session = sessionFactory.createEntityManager();
             session.getTransaction().begin();
-            Tool tools1 = session.find(Tool.class,tool);
-            session.remove(tools1);
+//            Product product = session.find(Product.class, product);
+            session.remove(product);
             session.getTransaction().commit();
             if (session.isOpen()) {
                 session.close();
@@ -72,16 +59,28 @@ public class ToolRepositoryManager implements ToolRepository {
     }
 
     @Override
-    public boolean update(int id, Tool tools) {
+    public void create(Product product) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        Tool tools1 = session.find(Tool.class,id);
-        tools1.setName(tools.getName());
-        tools1.setPrice(tools.getPrice());
-        tools1.setDescription(tools.getDescription());
-        tools1.setType(tools.getType());
-        tools1.setSize(tools.getSize());
-        tools1.setId(id);
+        session.persist(product);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean update(Product product) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+//        Product product = session.find(Product.class,id);
+//        product.setName(product.getName());
+//        product.setPrice(product.getPrice());
+//        product.setDescription(product.getDescription());
+//        product.setType(product.getType());
+//        product.setSize(product.getSize());
+//        product.setId(id);
+        session.merge(product);
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -92,10 +91,10 @@ public class ToolRepositoryManager implements ToolRepository {
 
 
     @Override
-    public Tool getById(int id) {
+    public Product getById(int id) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        Tool tools1 = session.find(Tool.class,id);
+        Product tools1 = session.find(Product.class,id);
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -105,10 +104,10 @@ public class ToolRepositoryManager implements ToolRepository {
     }
 
     @Override
-    public List<Tool> getByCategories(String type) {
+    public List<Product> getByCategories(String type) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Tool> tools1 = session.createNamedQuery("getCategory",Tool.class).
+        List<Product> tools1 = session.createNamedQuery("getCategory", Product.class).
                 setParameter("type",type).getResultList();
                 session.getTransaction().commit();
         if (session.isOpen()) {
