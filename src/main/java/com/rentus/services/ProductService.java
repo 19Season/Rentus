@@ -14,5 +14,6 @@ public interface ProductService {
     Product findById(int id);
    List<Product> findByCategories(String type);
    void delete(Product product);
+    List<Product> ShopTools(int id);
 
     }

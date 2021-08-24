@@ -1,6 +1,7 @@
 package com.rentus.repository;
 
 import com.rentus.models.Product;
+import com.rentus.models.Shop;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
@@ -19,7 +20,7 @@ public class ProductRepositoryManager implements ProductRepository {
     public List<Product> allProducts() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Product> result = session.createQuery("FROM Tool t INNER JOIN FETCH t.shop s").getResultList();
+        List<Product> result = session.createQuery("FROM Product t INNER JOIN FETCH t.shop s").getResultList();
 //        List<Tool> result = session.createQuery("FROM Tool").getResultList();
 
         session.getTransaction().commit();
@@ -37,6 +38,19 @@ public class ProductRepositoryManager implements ProductRepository {
         List<Product> result = session.createNamedQuery("getBooked", Product.class)
                 .setParameter("booked",true)
                 .getResultList();
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return result;
+    }
+    @Override
+    public List<Product> getShopTools(int id) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Shop shop = new Shop();
+        shop.setId(id);
+        List<Product> result = session.createNamedQuery("findByShop",Product.class).setParameter("shop",shop).getResultList();
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();

@@ -1,18 +1,21 @@
 package com.rentus.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name = "getBooked", query = "FROM Tool t where t.isBooked =:booked"),
-        @NamedQuery(name = "getCategory", query = "FROM Tool t where t.type=:type")
+        @NamedQuery(name = "getBooked", query = "FROM Product t where t.isBooked =:booked"),
+        @NamedQuery(name = "getCategory", query = "FROM Product t where t.type=:type"),
+        @NamedQuery(
+                name="findByShop",
+                query="from Product where shop=:shop"
+        ),
 })
 
 
 @Entity
-@Table(name="products")
+@Table(name="tools")
 public class Product {
 
     @Id
@@ -32,15 +35,14 @@ public class Product {
     @Expose
     private boolean isBooked;
 
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "shop_id")
     @Expose
-    private int userId;
+    private Shop shop;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "shop_id")
-//    @Expose
-//    private Shop shop;
-
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "product")
+    @OneToOne(fetch = FetchType.EAGER)
     private Order order;
 
 //    public Shop getShop() {
@@ -121,11 +123,19 @@ public class Product {
         this.order = order;
     }
 
-    public int getUserId() {
-        return userId;
-    }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", size=" + size +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", isBooked=" + isBooked +
+                ", shop=" + shop +
+                ", order=" + order +
+                '}';
     }
 }

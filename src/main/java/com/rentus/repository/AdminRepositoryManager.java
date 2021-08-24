@@ -1,7 +1,7 @@
 package com.rentus.repository;
 
-import com.rentus.models.Admin;
 import com.rentus.utility.SessionFactory;
+import com.rentus.models.Admin;
 
 import javax.persistence.EntityManager;
 

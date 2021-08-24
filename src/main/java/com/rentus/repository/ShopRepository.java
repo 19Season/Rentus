@@ -2,8 +2,11 @@ package com.rentus.repository;
 
 import com.rentus.models.Shop;
 
+import java.util.List;
+
 public interface ShopRepository {
     void register(Shop shop);
-    Boolean login(Shop shop);
+    Shop login(Shop shop);
+    List<Shop> allShops();
 
 }

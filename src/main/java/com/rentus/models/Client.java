@@ -1,4 +1,4 @@
-package main.java.com.rentus.models;
+package com.rentus.models;
 
 import com.google.gson.annotations.Expose;
 
@@ -33,7 +33,7 @@ public class Client {
 
     @Expose
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
-    private List<Order> orders;
+    public List<Order> orders;
 
     public int getId() {
         return id;
@@ -98,4 +98,6 @@ public class Client {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
+
+
 }

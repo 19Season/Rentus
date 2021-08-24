@@ -52,6 +52,7 @@ public class OrderRepositoryManager implements OrderRepository {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
         List<Order> result = session.createNamedQuery("allOrders").getResultList();
+        System.out.println(result.toString());
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();

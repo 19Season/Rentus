@@ -5,6 +5,7 @@ import com.rentus.models.Shop;
 import com.rentus.utility.GsonFactory;
 import com.rentus.utility.ServiceFactory;
 
+import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class ShopController {
@@ -26,14 +27,26 @@ public class ShopController {
         post("/api/shop/signIn", (req, res) -> {
             try {
                 Shop shop = new Gson().fromJson(req.body(), Shop.class);
-                ServiceFactory.getshopService().login(shop);
-                return true;
+                return GsonFactory.gson().toJson(ServiceFactory.getshopService().login(shop));
+
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
 
         });
+    }
+
+    public static void allShops() {
+        get("/api/shops", (req, res) -> {
+            try {
+                return GsonFactory.gson().toJson(ServiceFactory.getshopService().getShops());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "failed to fetch shops";
+            }
+        });
+
     }
 
 }

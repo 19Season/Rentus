@@ -44,6 +44,7 @@ public ProductManagementService(){
 
     @Override
     public void create(Product product) {
+        product.setBooked(false);
         toolRepo.create(product);
     }
 
@@ -62,6 +63,12 @@ public ProductManagementService(){
         toolRepo.delete(product);
     }
 
+
+
+    @Override
+    public List<Product> ShopTools(int id) {
+        return toolRepo.getShopTools(id);
+    }
 }
 
 

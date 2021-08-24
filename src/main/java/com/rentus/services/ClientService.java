@@ -2,10 +2,14 @@ package com.rentus.services;
 
 import com.rentus.models.Client;
 
+import java.util.List;
+
 public interface ClientService {
- Boolean Login(Client client);
+ Client Login(Client client);
 
 
  void Register(Client client);
+
+ List<Client> getClients();
 
 }

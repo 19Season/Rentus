@@ -11,14 +11,14 @@
         <!-- Assume test is the database name -->
 
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/rentus?serverTimezone=UTC
+            jdbc:mysql://localhost:3306/rentus
         </property>
 
         <property name="hibernate.connection.username">
             root
         </property>
 
-        <property name="hibernate.connection.password">rootroot</property>
+        <property name="hibernate.connection.password"></property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
 

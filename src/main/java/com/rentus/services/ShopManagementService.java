@@ -4,6 +4,8 @@ import com.rentus.models.Shop;
 import com.rentus.repository.ShopRepository;
 import com.rentus.utility.RepoFactory;
 
+import java.util.List;
+
 public class ShopManagementService implements ShopService {
     private ShopRepository shopRepo;
 
@@ -18,8 +20,15 @@ public class ShopManagementService implements ShopService {
     }
 
    @Override
-    public Boolean login(Shop shop) {
-        shopRepo.login(shop);
-        return true;
+    public Shop login(Shop shop) {
+       return shopRepo.login(shop);
+
     }
+
+    @Override
+    public List<Shop> getShops() {
+        return shopRepo.allShops();
+    }
+
+
 }

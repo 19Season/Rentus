@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "name": "test1",
+  "address": "lapna",
+  "username": "test2",
+  "password": "abc",
+  "email": "aad"
+}
+{
+
+
+  "description": "tent",
+  "isBooked": true,
+  "name": "tent1",
+  "price": 11,
+  "size": 12,
+  "type": "outddor",
+  "shop": {
+    "id": 1},
+
+  for order
+        "bookedDate": "12334",
+      "expiryDate": "2345",
+  "Client": {
+    "id": 3
+  },
+  "Product":{
+    "id": 2
+  }
+
+
+}

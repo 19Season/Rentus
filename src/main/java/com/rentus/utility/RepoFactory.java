@@ -1,6 +1,6 @@
 package com.rentus.utility;
 
-import com.rentus.services.*;
+import com.rentus.repository.*;
 
 public class RepoFactory {
 
@@ -18,10 +18,7 @@ public class RepoFactory {
 
     }
 
-    public static UserRepository getUserRepo() {
-        return new UserRepositoryManager();
 
-    }
 public static AdminRepository getAdminRepo(){
         return new AdminRepositoryManager();
 }

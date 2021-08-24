@@ -14,6 +14,7 @@ public interface ProductRepository {
       Product getById(int id);
       List<Product> getByCategories(String type);
       void Available();
+      List<Product> getShopTools(int id);
       //boolean cancelBook(int id);
 
   }

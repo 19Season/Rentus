@@ -1,5 +1,6 @@
 package com.rentus.services;
 
+
 import com.rentus.models.Admin;
 
 public interface AdminService {

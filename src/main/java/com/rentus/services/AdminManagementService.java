@@ -1,8 +1,8 @@
 package com.rentus.services;
 
-import com.rentus.models.Admin;
 import com.rentus.repository.AdminRepository;
 import com.rentus.utility.RepoFactory;
+import com.rentus.models.Admin;
 
 public class AdminManagementService implements AdminService {
     private AdminRepository AdminRepo;

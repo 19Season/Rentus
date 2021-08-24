@@ -8,9 +8,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import static spark.Spark.*;
+import static spark.Spark.post;
 
-public class ImageControllers {
+public class    ImageControllers {
     public static void uploadImage(){
         post("/api/upload", (req, res) -> {
             String destinationFolderLocation = "E:\\Rent-\\rentus\\src\\main\\resources\\public\\images";

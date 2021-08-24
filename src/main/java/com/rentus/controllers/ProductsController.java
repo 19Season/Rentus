@@ -5,7 +5,8 @@ import com.rentus.models.Product;
 import com.rentus.utility.GsonFactory;
 import com.rentus.utility.ServiceFactory;
 
-import static spark.Spark.*;
+import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class ProductsController {
 
@@ -79,6 +80,14 @@ public class ProductsController {
 
         });
     }
+    public static void ShopTools() {
+        get("/api/tool/shop/:id",(req,res)->{
+            int id=Integer.parseInt(req.params("id"));
+            return GsonFactory.gson().toJson(ServiceFactory.getProductService().
+                    ShopTools(id));
+        });
+    }
+
 
     public static void getByCategories() {
         get("/api/getByType/:type", (req, res) -> {

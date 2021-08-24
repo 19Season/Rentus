@@ -1,18 +1,10 @@
 package com.rentus;
-
 import com.rentus.controllers.*;
 import com.rentus.utility.SessionFactory;
-import spark.Filter;
-import spark.Request;
-import spark.Response;
-import spark.Spark;
 
-import java.util.HashMap;
 import java.util.logging.Logger;
 
-import static spark.Spark.after;
-import static spark.Spark.port;
-import static spark.Spark.staticFiles;
+import static spark.Spark.*;
 
 public class RentusApplication {
 	private final static Logger LOGGER = Logger.getLogger(RentusApplication.class.getName());
@@ -29,21 +21,43 @@ public class RentusApplication {
 			String staticDir = "/src/main/resources/public";
 			staticFiles.externalLocation(projectDir + staticDir);
 
-			RentusApplication.apply();
+			options("/*", (request, response) -> {
+
+				String accessControlRequestHeaders = request
+						.headers("Access-Control-Request-Headers");
+				if (accessControlRequestHeaders
+						!= null) {
+					response.header("Access-Control-Allow-Headers",
+							accessControlRequestHeaders); }
+
+				String accessControlRequestMethod = request
+						.headers("Access-Control-Request-Method"); if (accessControlRequestMethod !=
+						null) { response.header("Access-Control-Allow-Methods",
+						accessControlRequestMethod); }
+
+				return "OK"; });
+
+			before((request, response) -> response.header("Access-Control-Allow-Origin",
+					"*"));
+
+
+//			RentusApplication.apply();
 			SessionFactory.getInstance();
-			ProductsController.addProduct();
-			ProductsController.updateTools();
+			ProductsController.createOrUpdate();
 			ProductsController.allProducts();
 			ProductsController.getById();
 			ProductsController.getAllBookedTools();
 			ProductsController.getByCategories();
+			ProductsController.ShopTools();
+			ClientController.allClients();
 			ClientController.Login();
 			ClientController.Register();
 			ShopController.register();
 			ShopController.login();
+			ShopController.allShops();
 			AdminController.register();
 			AdminController.login();
-			OrderController.allOrder();
+			OrderController.allOrders();
 			OrderController.cancelOrder();
 			OrderController.getParticularOrder();
 			OrderController.makeOrder();
@@ -56,25 +70,25 @@ public class RentusApplication {
 		System.out.println("hello");
 	}
 
-	private static final HashMap<String, String> corsHeaders = new HashMap<String, String>();
-
-	static {
-		corsHeaders.put("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-		corsHeaders.put("Access-Control-Allow-Origin", "*");
-		corsHeaders.put("Access-Control-Allow-Headers", "Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,");
-		corsHeaders.put("Access-Control-Allow-Credentials", "true");
-	}
-
-	public final static void apply() {
-		Filter filter = new Filter() {
-			@Override
-			public void handle(Request request, Response response) throws Exception {
-				corsHeaders.forEach((key, value) -> {
-					response.header(key, value);
-				});
-			}
-		};
-		Spark.after(filter);
-	}
+//	private static final HashMap<String, String> corsHeaders = new HashMap<String, String>();
+//
+//	static {
+//		corsHeaders.put("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+//		corsHeaders.put("Access-Control-Allow-Origin", "*");
+//		corsHeaders.put("Access-Control-Allow-Headers", "Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin,");
+//		corsHeaders.put("Access-Control-Allow-Credentials", "true");
+//	}
+//
+//	public final static void apply() {
+//		Filter filter = new Filter() {
+//			@Override
+//			public void handle(Request request, Response response) throws Exception {
+//				corsHeaders.forEach((key, value) -> {
+//					response.header(key, value);
+//				});
+//			}
+//		};
+//		Spark.after(filter);
+//	}
 
 }

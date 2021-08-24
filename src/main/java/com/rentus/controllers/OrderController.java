@@ -3,7 +3,6 @@ package com.rentus.controllers;
 
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.rentus.models.Order;
 import com.rentus.utility.GsonFactory;
 import com.rentus.utility.ServiceFactory;
@@ -13,10 +12,13 @@ import static spark.Spark.post;
 
 public class OrderController {
     public static void makeOrder() {
-        post("/api/orders/order", (req, res) -> {
+        post("/api/orders/makeorder", (req, res) -> {
+
             try {
+                System.out.println("here");
                 Order order = new Gson().fromJson(req.body(), Order.class);
                 ServiceFactory.getorderservice().makeOrder(order);
+                System.out.println(order);
                 return true;
             }
             catch(Exception e) {

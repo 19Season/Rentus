@@ -5,8 +5,8 @@ import com.google.gson.annotations.Expose;
 import javax.persistence.*;
 
 @NamedQueries({
-        @NamedQuery(name = "allOrders", query = "FROM Order O INNER JOIN FETCH O.tool"),
-        @NamedQuery(name = "getParticularOrder", query = "FROM Order O INNER JOIN FETCH O.tool  where O.userId= :userId")
+        @NamedQuery(name = "allOrders", query = "FROM Order O INNER JOIN FETCH O.product"),
+        @NamedQuery(name = "getParticularOrder", query = "FROM Order O INNER JOIN FETCH O.product  where O.client= :client")
 })
 
 @Entity
@@ -17,17 +17,46 @@ public class Order {
     @Expose
     private int id;
 
-    @Expose
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "tool_id")
+   @Expose
+   @OneToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "tool_id")
     private Product product;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "client_id")
-//    private Client client;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
+    public Client client;
 
     @Expose
-    private int userId;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Expose
+    private String address;
+    @Expose
+    private String phone;
 
     @Expose
     private Long bookedDate;
@@ -66,13 +95,34 @@ public class Order {
         this.product = product;
     }
 
-    public int getUserId() {
-        return userId;
+    public Client getClient() {
+        return client;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", product=" + product +
+                ", client=" + client +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", bookedDate=" + bookedDate +
+                ", expiryDate=" + expiryDate +
+                '}';
     }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    //    @
+
+
+
+
+
     //
 //    public Client getClient() {
 //        return client;
