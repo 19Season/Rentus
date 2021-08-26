@@ -8,8 +8,12 @@ import javax.persistence.*;
         @NamedQuery(name = "getBooked", query = "FROM Product t where t.isBooked =:booked"),
         @NamedQuery(name = "getCategory", query = "FROM Product t where t.type=:type"),
         @NamedQuery(
-                name="findByShop",
-                query="from Product where shop=:shop"
+                name="findByClient",
+                query="from Product where client=:client"
+        ),
+        @NamedQuery(
+                name="findByShopId",
+                query="from Product p  where p.shop= :shop"
         ),
 })
 
@@ -35,14 +39,34 @@ public class Product {
     @Expose
     private boolean isBooked;
 
+    @Expose
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "shop_id")
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "client_id")
+    private Client client;
+
     @Expose
     private Shop shop;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Order order;
 
 //    public Shop getShop() {

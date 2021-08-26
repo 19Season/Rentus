@@ -15,11 +15,13 @@ import java.util.List;
 
 
 public class ProductManagementService implements ProductService {
-private ProductRepository toolRepo;
-public ProductManagementService(){
-    this.toolRepo = RepoFactory.getProductRepo();
+    private ProductRepository toolRepo;
 
-}
+    public ProductManagementService() {
+        this.toolRepo = RepoFactory.getProductRepo();
+
+    }
+
     @Transactional
     @Override
     public List<Product> getProducts() {
@@ -33,7 +35,7 @@ public ProductManagementService(){
 
     @Override
     public boolean update(Product product) {
-        return  RepoFactory.getProductRepo().update(product);
+        return RepoFactory.getProductRepo().update(product);
     }
 
     /*@Override
@@ -64,12 +66,25 @@ public ProductManagementService(){
     }
 
 
-
     @Override
     public List<Product> ShopTools(int id) {
         return toolRepo.getShopTools(id);
     }
+
+
+    @Override
+    public List<Product> ClientBookedProduct(int id) {
+        return toolRepo.getClientBookedProduct(id);
+    }
 }
+
+//    @Override
+//    public boolean approveProduct(int id) {
+//        return toolRepo.approveProduct(id);
+//    }
+//    }
+
+
 
 
 

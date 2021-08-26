@@ -18,11 +18,11 @@ public class Order {
     private int id;
 
    @Expose
-   @OneToOne(fetch = FetchType.EAGER)
+   @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
 //    @JoinColumn(name = "tool_id")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     public Client client;
 

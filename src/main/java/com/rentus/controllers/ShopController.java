@@ -48,7 +48,13 @@ public class ShopController {
         });
 
     }
-
+//    public static void approveShop() {
+//        get("/api/shop/approve/:id", (req, res) -> {
+//            int id = Integer.parseInt(req.params("id"));
+//            System.out.println(id);
+//            return ServiceFactory.getshopService().approveShop(id);
+//        });
+//    }
 }
 
 

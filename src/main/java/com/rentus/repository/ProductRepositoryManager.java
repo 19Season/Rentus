@@ -1,27 +1,31 @@
 package com.rentus.repository;
 
+import com.rentus.models.Client;
 import com.rentus.models.Product;
 import com.rentus.models.Shop;
+import com.rentus.utility.RepoFactory;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 public class ProductRepositoryManager implements ProductRepository {
-    
+
     private static org.hibernate.SessionFactory sessionFactory;
     private EntityManager session;
+    private ShopRepository shopRepo;
 
     public ProductRepositoryManager() {
         sessionFactory = SessionFactory.getInstance();
+        this.shopRepo= RepoFactory.getShopRepo();
     }
 
     @Override
     public List<Product> allProducts() {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        List<Product> result = session.createQuery("FROM Product t INNER JOIN FETCH t.shop s").getResultList();
-//        List<Tool> result = session.createQuery("FROM Tool").getResultList();
+       // List<Product> result = session.createQuery("FROM Product t INNER JOIN FETCH t.shop s").getResultList();
+       List<Product> result = session.createQuery("FROM Product").getResultList();
 
         session.getTransaction().commit();
         if (session.isOpen()) {
@@ -36,7 +40,7 @@ public class ProductRepositoryManager implements ProductRepository {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
         List<Product> result = session.createNamedQuery("getBooked", Product.class)
-                .setParameter("booked",true)
+                .setParameter("booked", true)
                 .getResultList();
         session.getTransaction().commit();
         if (session.isOpen()) {
@@ -44,19 +48,47 @@ public class ProductRepositoryManager implements ProductRepository {
         }
         return result;
     }
+
     @Override
     public List<Product> getShopTools(int id) {
+        System.out.println("Repo ..");
+            session = sessionFactory.createEntityManager();
+            session.getTransaction().begin();
+            try {
+                Shop shop =  shopRepo.getShopById(id);
+                System.out.println(shop);
+                List<Product> result = session.createNativeQuery("select * from products where shop_id = :shop", Product.class).getResultList();
+                session.getTransaction().commit();
+                if (session.isOpen()) {
+                    session.close();
+                }
+                System.out.println(result);
+                return result;
+            }catch(Exception e){
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+@Override
+    public List<Product> getClientBookedProduct(int id) {
         session = sessionFactory.createEntityManager();
         session.getTransaction().begin();
-        Shop shop = new Shop();
-        shop.setId(id);
-        List<Product> result = session.createNamedQuery("findByShop",Product.class).setParameter("shop",shop).getResultList();
+        Client client = new Client();
+        client.setId(id);
+        List<Product> result = session.createNamedQuery("findByClient", Product.class).setParameter("client", client).getResultList();
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
         }
         return result;
     }
+
+//    @Override
+//    public boolean approveProduct(int id) {
+//        return false;
+//    }
+
 
     @Override
         public void delete(Product product) {

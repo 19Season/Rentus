@@ -24,10 +24,61 @@ public class ClientRepositoryManager implements ClientRepository {
         if (session.isOpen()) {
             session.close();
         }
-
-
     }
 
+    @Override
+    public Client getCLientbyId(int id){
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Client client=session.find(Client.class,id);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return client;
+    }
+
+//    @Override
+//    public boolean checkUserUsername(Client client) {
+//        System.out.println("Repo");
+//        session=sessionFactory.createEntityManager();
+//        session.getTransaction().begin();
+//        Client dbClient=null;
+//        try {
+//            dbClient = (Client) session.createNamedQuery("findUserByUsername",Client.class)
+//                    .setParameter("username", client.getUsername()).getSingleResult();
+//        }catch(Exception e){
+//            e.printStackTrace();
+//            dbClient=null;
+//        }
+//        session.getTransaction().commit();
+//        if(session.isOpen()) {
+//            session.close();
+//        }
+//        if(dbClient!=null){
+//            return  true;
+//        }else{
+//            return  false;
+//        }
+//    }
+//    @Override
+//    public boolean checkUserExistsByEmail(String email) {
+//        session = sessionFactory.createEntityManager();
+//        session.getTransaction().begin();
+//        Client result=null;
+//        try {
+//            result = session.createNamedQuery("findUserByEmail", Client.class)
+//                    .setParameter("email", email).getSingleResult();
+//            session.getTransaction().commit();
+//        }catch(Exception e){
+//            result=null;
+//        }
+//        if(result!=null){
+//            return true;
+//        }else{
+//            return false;
+//        }
+//    }
 
     @Override
     public Client Login(Client client) {

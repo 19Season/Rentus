@@ -15,6 +15,7 @@ public interface ProductRepository {
       List<Product> getByCategories(String type);
       void Available();
       List<Product> getShopTools(int id);
-      //boolean cancelBook(int id);
+      List<Product> getClientBookedProduct(int id);
+//      boolean approveProduct(int id);
 
   }

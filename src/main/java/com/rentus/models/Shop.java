@@ -94,19 +94,17 @@ public class Shop {
     }
 
 
-
-
-
- /* @Override
+    @Override
     public String toString() {
         return "Shop{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", Email='" + Email + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", Username='" + Username + '\'' +
+                ", username='" + username + '\'' +
+                ", products=" + products +
                 '}';
-    }*/
+    }
 }

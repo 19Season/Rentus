@@ -53,8 +53,21 @@ public class ShopRepositoryManager implements ShopRepository {
             if (session.isOpen()) {
                 session.close();
             }
+
             return result;
         }
+
+    @Override
+    public Shop getShopById(int id) {
+        session = sessionFactory.createEntityManager();
+        session.getTransaction().begin();
+        Shop shop=session.find(Shop.class,id);
+        session.getTransaction().commit();
+        if (session.isOpen()) {
+            session.close();
+        }
+        return shop;
     }
+}
 
 

@@ -15,7 +15,9 @@ public class ProductsController {
         post("/api/products/product", (req, res) -> {
             try {
                 var productService = ServiceFactory.getProductService();
+
                 Product product = new Gson().fromJson(req.body(), Product.class);
+                System.out.println(product);
                 if (product.getId() > 0) {
                     productService.create(product);
                 } else {
@@ -80,11 +82,12 @@ public class ProductsController {
 
         });
     }
+
     public static void ShopTools() {
         get("/api/tool/shop/:id",(req,res)->{
             int id=Integer.parseInt(req.params("id"));
-            return GsonFactory.gson().toJson(ServiceFactory.getProductService().
-                    ShopTools(id));
+            System.out.println(id);
+            return new Gson().toJson(ServiceFactory.getProductService().ShopTools(id));
         });
     }
 
@@ -100,8 +103,23 @@ public class ProductsController {
             }
 
         });
-
     }
+
+        public static void clientProduct() {
+            get("/api/product/client/:id", (req, res) -> {
+                int id = Integer.parseInt(req.params("id"));
+                return new Gson().toJson(ServiceFactory.getProductService().ClientBookedProduct(id));
+            });
+        }
+//
+//    public static void approveProduct() {
+//        get("/api/product/approve/:id", (req, res) -> {
+//            int id = Integer.parseInt(req.params("id"));
+//            System.out.println(id);
+//            return ServiceFactory.getProductService().approveProduct(id);
+//        });
+//    }
+
 
 
    /* private ToolsService toolsService;

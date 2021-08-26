@@ -12,4 +12,7 @@ public interface ClientService {
 
  List<Client> getClients();
 
+// Boolean checkUserByEmail(String email);
+// Boolean checkUserByUsername(Client client);
+
 }

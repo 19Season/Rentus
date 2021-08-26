@@ -41,6 +41,8 @@ public class RentusApplication {
 					"*"));
 
 
+			TestController test=new TestController();
+			test.test();
 //			RentusApplication.apply();
 			SessionFactory.getInstance();
 			ProductsController.createOrUpdate();
@@ -49,12 +51,19 @@ public class RentusApplication {
 			ProductsController.getAllBookedTools();
 			ProductsController.getByCategories();
 			ProductsController.ShopTools();
+			ProductsController.delete();
+//			ProductsController.approveProduct();
+
+
 			ClientController.allClients();
 			ClientController.Login();
 			ClientController.Register();
+
 			ShopController.register();
 			ShopController.login();
 			ShopController.allShops();
+//			ShopController.approveShop();
+
 			AdminController.register();
 			AdminController.login();
 			OrderController.allOrders();

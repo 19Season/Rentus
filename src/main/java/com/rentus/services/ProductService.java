@@ -15,5 +15,7 @@ public interface ProductService {
    List<Product> findByCategories(String type);
    void delete(Product product);
     List<Product> ShopTools(int id);
+    List<Product>ClientBookedProduct(int id);
+//    boolean approveProduct(int id);
 
     }

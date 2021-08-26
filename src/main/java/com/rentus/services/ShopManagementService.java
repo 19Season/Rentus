@@ -30,5 +30,10 @@ public class ShopManagementService implements ShopService {
         return shopRepo.allShops();
     }
 
+//    @Override
+//    public boolean approveShop(int id) {
+//        return shopRepo.approveShops(id);
+//    }
+
 
 }

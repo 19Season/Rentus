@@ -8,5 +8,6 @@ public interface ShopRepository {
     void register(Shop shop);
     Shop login(Shop shop);
     List<Shop> allShops();
-
+    Shop getShopById(int id);
+//    boolean approveShops(int id);
 }

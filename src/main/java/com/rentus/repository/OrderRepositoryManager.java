@@ -1,8 +1,10 @@
 
 package com.rentus.repository;
 
+import com.rentus.models.Client;
 import com.rentus.models.Order;
 import com.rentus.models.Product;
+import com.rentus.utility.RepoFactory;
 import com.rentus.utility.SessionFactory;
 
 import javax.persistence.EntityManager;
@@ -11,9 +13,11 @@ import java.util.List;
 public class OrderRepositoryManager implements OrderRepository {
     private static org.hibernate.SessionFactory sessionFactory;
     private EntityManager session;
+    private ClientRepository clientRepo;
 
     public OrderRepositoryManager() {
         sessionFactory = SessionFactory.getInstance();
+        this.clientRepo= RepoFactory.getClientRepo();
     }
 
     public boolean makeOrder(Order order) {
@@ -22,7 +26,7 @@ public class OrderRepositoryManager implements OrderRepository {
         session.persist(order);
         Product product = session.find(Product.class, order.getProduct().getId());
         product.setBooked(true);
-        session.persist(product);
+
 
         session.getTransaction().commit();
         if (session.isOpen()) {
@@ -39,7 +43,7 @@ public class OrderRepositoryManager implements OrderRepository {
         Product product = order.getProduct();
         product.setBooked(false);
         session.remove(order);
-        session.persist(product);
+
         session.getTransaction().commit();
         if (session.isOpen()) {
             session.close();
@@ -64,7 +68,8 @@ public class OrderRepositoryManager implements OrderRepository {
     public List<Order> getParticularOrder(int id) {
             session = sessionFactory.createEntityManager();
             session.getTransaction().begin();
-            List<Order> orders = session.createNamedQuery("getParticularOrder").setParameter("client",id).getResultList();
+            Client client=clientRepo.getCLientbyId(id);
+            List<Order> orders = session.createNamedQuery("getParticularOrder").setParameter("client",client).getResultList();
             session.getTransaction().commit();
             if (session.isOpen()) {
                 session.close();

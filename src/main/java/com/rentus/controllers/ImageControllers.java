@@ -10,10 +10,10 @@ import java.io.OutputStream;
 
 import static spark.Spark.post;
 
-public class    ImageControllers {
+public class  ImageControllers {
     public static void uploadImage(){
         post("/api/upload", (req, res) -> {
-            String destinationFolderLocation = "E:\\Rent-\\rentus\\src\\main\\resources\\public\\images";
+            String destinationFolderLocation = "E:\\Rent-\\Rentus\\src\\main\\resources\\public\\image";
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement(destinationFolderLocation));
             Part filePart = req.raw().getPart("myfile");
             String fileName = System.currentTimeMillis() + "_" + filePart.getSubmittedFileName().replace(" ","_");
@@ -25,7 +25,7 @@ public class    ImageControllers {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            return "/images/"+fileName;
+            return "http://localhost:1234/image/"+fileName;
         });
     }
 }

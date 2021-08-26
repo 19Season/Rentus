@@ -9,6 +9,14 @@ import java.util.List;
 @Table(name= "clients")
 @NamedQueries({
         @NamedQuery(name = "login", query = "FROM Client t where t.username = :username"),
+//        @NamedQuery(
+//                name = "findUserByUsername",
+//                query = "from Client where username=:username"
+//        ),
+//        @NamedQuery(
+//                name = "findUserByEmail",
+//                query = "from Client where email=:email"
+//        )
 })
 
 
@@ -32,7 +40,8 @@ public class Client {
     private String username;
 
     @Expose
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
+    @OneToMany
+            (fetch = FetchType.EAGER, mappedBy = "client")
     public List<Order> orders;
 
     public int getId() {

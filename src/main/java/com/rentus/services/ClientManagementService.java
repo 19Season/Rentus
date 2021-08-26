@@ -16,9 +16,19 @@ public class ClientManagementService implements ClientService {
     @Override
     public Client Login(Client client) {
 //        System.out.println("service" + ClientRepo.Login(client));
-       return ClientRepo.Login(client);
-
+        return ClientRepo.Login(client);
     }
+
+//        @Override
+//        public Boolean checkUserByEmail(String email) {
+//            return ClientRepo.checkUserExistsByEmail(email);
+//        }
+//
+//        @Override
+//        public Boolean checkUserByUsername(Client client) {
+//            System.out.println("Service");
+//            return ClientRepo.checkUserUsername(client);
+//        }
 
 
 
