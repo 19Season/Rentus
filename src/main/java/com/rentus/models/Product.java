@@ -64,18 +64,12 @@ public class Product {
     private Client client;
 
     @Expose
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "shop_id")
     private Shop shop;
 
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Order order;
-
-//    public Shop getShop() {
-//        return shop;
-//    }
-//
-//    public void setShop(Shop shop) {
-//        this.shop = shop;
-//    }
 
     public boolean isBooked()
 
@@ -158,7 +152,7 @@ public class Product {
                 ", price=" + price +
                 ", type='" + type + '\'' +
                 ", isBooked=" + isBooked +
-                ", shop=" + shop +
+//                ", shop=" + shop +
                 ", order=" + order +
                 '}';
     }

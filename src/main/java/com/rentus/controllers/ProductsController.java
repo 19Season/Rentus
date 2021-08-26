@@ -87,7 +87,8 @@ public class ProductsController {
         get("/api/tool/shop/:id",(req,res)->{
             int id=Integer.parseInt(req.params("id"));
             System.out.println(id);
-            return new Gson().toJson(ServiceFactory.getProductService().ShopTools(id));
+            return ServiceFactory.getProductService().ShopTools(id);
+//            return new Gson().toJson(ServiceFactory.getProductService().ShopTools(id));
         });
     }
 

@@ -57,7 +57,7 @@ public class ProductRepositoryManager implements ProductRepository {
             try {
                 Shop shop =  shopRepo.getShopById(id);
                 System.out.println(shop);
-                List<Product> result = session.createNativeQuery("select * from products where shop_id = :shop", Product.class).getResultList();
+                List<Product> result = session.createNamedQuery("findByShopId", Product.class).setParameter("shop",shop).getResultList();
                 session.getTransaction().commit();
                 if (session.isOpen()) {
                     session.close();
